@@ -2,21 +2,27 @@ class CBox {
   init() {
     this.server = 'http://parse.sfs.hackreactor.com/chatterbox/classes/messages';
     this.roomList = [];
+    this.fetchData = [];
     this.friendsList = {};
   }
   send (message) {
     $.ajax({
       type: 'POST',
-      url: this.server,
+      url: 'http://parse.sfs.hackreactor.com/chatterbox/classes/messages',
       data: message
     });
   }
   fetch () {
     $.ajax({
       type: 'GET',
-      url: this.server,
+      url: 'http://parse.sfs.hackreactor.com/chatterbox/classes/messages',
+      contentType: 'application/json',
       success: function(res) {
-        console.log(res);
+        console.log('SUCCESS');
+        
+        res.results.forEach(e => app.renderMessage(e));
+        
+        console.log(res.results);
       },
       error: function(error) {
         console.log('SOMETHING WENT WRONG!\n', error);
@@ -27,9 +33,10 @@ class CBox {
     $('#chats').html('');
   }
   renderMessage (message) {
-    this.send(message);
+    //this.send(message);
     
-    $('<p>' + message.text + '</p>').appendTo('#chats');
+    $('<p class=".message"><strong><button class="username">' + message.username + '</button></strong>: ' 
+      + message.text + '</p><hr>').appendTo('#chats');
   }
   renderRoom (roomName) {
     this.roomList.push(roomName);
@@ -37,7 +44,7 @@ class CBox {
   }
   handleUsernameClick (userName) {
     this.addFriend(userName);
-    alert('this is the usernameclick');
+    alert('User name ' + userName + ' will be added to your friends list');
   }
   handleSubmit (message) {
     // var $inputs = $('#send :input');
@@ -53,6 +60,8 @@ class CBox {
 var app = new CBox;
 
 $(document).ready(function() {
+  
+  app.fetch();
   //handle username click will add the clicked name as a friend.
   $('#main').find('.username').on('click', function() {
     var $name = $('input[name="username"]').val();
@@ -66,7 +75,6 @@ $(document).ready(function() {
     
     e.preventDefault();
   });
-  //renderRoom will create a chat room
   
 });
 
