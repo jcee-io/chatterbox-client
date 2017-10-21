@@ -2,11 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>chatterbox</title>
+    <title>Slack Reactor</title>
     <link rel="stylesheet" href="styles/styles.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <!-- dependencies -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
       // YOU DO NOT NEED TO EDIT THIS CODE
       if (!/(&|\?)username=/.test(window.location.search)) {
@@ -23,10 +26,45 @@
     <script src="scripts/app.js"></script>
   </head>
   <body>
+    
     <div id="main">
-      <h1>chatterbox</h1>
-      <!-- Your HTML goes here! -->
+      <img id="logo" src="styles/slack-reactor-logo.png">
+      <div class="jumbotron">
+        <div class="row">
+
+          <div class="rooms col-md-3 col-lg-3">
+            Channel:
+            <button id="renderRoom" class="btn btn-default btn-sm">Create A New Room</button>
+            <div id="roomSelect">
+              
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            Chatterbox:
+            <div>
+              <form action="#" id="send" method="post">
+                <input type="text" name="message" id="message"/>
+                <input type="submit" name="submit" class="submit btn btn-default btn-sm"/>
+
+              </form>
+              <div class="container" id="chats">
+              </div>
+            </div>
+          </div>
+          <div class="friends col-md-3 col-lg-3">
+            Friends List
+
+            <div id="friendsList">
+              <button class="username">Giraffallen</button>
+            </div>
+            
+          </div>
+
+        </div>
+      </div>
+
     </div>
-    <div id="chats"></div>
+
+  </div>
   </body>
 </html>
