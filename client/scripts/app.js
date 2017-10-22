@@ -40,7 +40,8 @@ class CBox {
   }
   renderMessage (message) {
     //current user will have a list of friends and if they are not there, add them
-  if(this.room === message.roomname && message.user !== 'undefined'){
+  if(this.room === message.roomname && message.text !== undefined && message.username.length > 0){
+
     if(this.friendsList.indexOf(message.username) === -1){
         $('<p class=".message"><strong><button value="'+ _.escape(message.username) +'"class="username">' 
         + _.escape(message.username) + '</button></strong>: ' 
@@ -112,6 +113,8 @@ $(document).ready(function() {
   $(document).on('submit', '#send', function(e) {
     var $message = $('input[name="message"]').val();
     app.handleSubmit({roomname: app.room, text: $message, username: app.user});
+    
+    
     e.preventDefault();
   });
   

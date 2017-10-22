@@ -1,20 +1,30 @@
+
+
 body {
     background: #eee;
+    background-color: black;
     text-align: center;
     padding: 0 25px;
     font-family: arial, sans-serif;
 }
 
+.headerName {
+    color: whitesmoke;
+    font-size: 30px;
+}
 .message {
-    font-size: 1px;
+    font-size: 30px;
 }
 .friends, .rooms {
-    margin-top: 45px;
+    margin-top: 40px;
     text-align: center;
 }
 .username {
    background: transparent;
    border: none; 
+}
+#chats * {
+    font-size: 15px; 
 }
 
 #chats {
@@ -23,12 +33,18 @@ body {
    font-size: 5px;
 }
 
+#interface {
+    background-color: #262626;
+    font-size: 15px;
+}
 #chatHeader {
-  text-align: center;  
+  text-align: center;
+   
 }
 
 #currentRoomHeader {
    font-size: 25px; 
+   color: whitesmoke; 
 }
 
 #roomForm {
@@ -36,7 +52,7 @@ body {
 }
 
 #friendsList {
-   margin: 5% 5%;
+   margin: 17% 5% 0 5%;
    background-color: white; 
    height: 300px;
    text-align: center;
@@ -45,6 +61,7 @@ body {
 
 #logo {
     width: 40%;
+    
 }
 #main, #chats {
     width: 100%;
@@ -57,6 +74,7 @@ body {
 }
 #main {
     height: 70%;
+    background-color: whitesmoke;
 }
 #main h1 {
     margin-top: 0;

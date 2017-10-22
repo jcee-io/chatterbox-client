@@ -25,15 +25,16 @@
     <script src="env/config.js"></script>
     <script src="scripts/app.js"></script>
   </head>
-  <body>
+  <body id="#body">
     
     <div id="main">
       <img id="logo" src="styles/slack-reactor-logo.png">
-      <div class="jumbotron">
+      <div id="interface" class="jumbotron">
         <div class="row">
 
           <div class="rooms col-md-3 col-lg-3">
-            Channel:
+            <span class="headerName">Channel:</span>
+            
             <form id="newRoom">
               <input id="roomForm" name="room" type="text" placeholder="e.g. lobby" name="">
               <input type="submit" id="renderRoom" class="btn btn-default btn-sm">   
@@ -60,7 +61,8 @@
             </div>
           </div>
           <div class="friends col-md-3 col-lg-3">
-            Friends List
+            <span class="headerName">Friends List</span>
+            
 
             <div id="friendsList">
               
